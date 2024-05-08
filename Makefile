@@ -13,6 +13,17 @@ client: $(CLIENT_S) $(LIBFT)
 server: $(SERVER_S) $(LIBFT)
 	$(COMPILER) $(FLAGS) $(SERVER_S) $(LIBFT) -o server
 
+server_old: srcs/server_old.c $(LIBFT)
+	$(COMPILER) $(FLAGS) srcs/server_old.c $(LIBFT) -o server_old
+
+clean:
+
+fclean:
+	@[ -f client ] && rm client || true
+	@[ -f server ] && rm server || true
+	@[ -f server_old ] && rm server_old || true
+	@echo "remove binaries"
+
 $(LIBFT):
 	make -C libft/
 
